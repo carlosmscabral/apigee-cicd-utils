@@ -4,7 +4,6 @@ const YAML = require('YAML');
 // spec is a parsed object from YAML
 const addHostToSpec = function (spec, hostname, apiConfig) {
     if ("servers" in spec) {
-        console.log(spec.servers);
         const uriExists = spec.servers.findIndex(url => url.url === hostname + '/' + apiConfig.apiBasePath);
         if (uriExists === -1) {
             spec.servers.push({ url: hostname });
