@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: my-proxy-name-v2
+  description: My API Dessasascription
+  version: 1.0.0
+paths:
+  /summarize:
+    post:
+      operationId: summarize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/inputPdfPayload"
+      responses:
+        "200":
+          description: The summarized PDF document.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/outputPdfPayload"
+        "400":
+          description: The request body is invalid.
+      summary: Summarizes a PDF document.
+components:
+  schemas:
+    inputPdfPayload:
+      description: The base64 representation of the PDF document.
+      properties:
+        pdfBase64:
+          type: string
+      type: object
+    outputPdfPayload:
+      description: The string summary of the PDF document.
+      type: object
+      properties:
+        summary:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: apikey
+      in: query
+security:
+  - api_key: []
+servers:
+  - url: huehue/my-proxy-name/v1

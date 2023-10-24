@@ -1,18 +1,23 @@
+'use strict';
+
 const yargs = require("yargs");
 const openapispec = require('./openapispec.js')
-const config = require('config');
+const fs = require('fs');
 
-console.log(openapispec);
-// console.log(yargs.argv);
+
 yargs.usage("\nUsage: $0 [cmd] <args>").alias("h", "help");
 
 yargs.command({
   command: 'adapt-openapi',
   describe: 'Adapts OpenAPI Spec',
   builder: {
-    path: {
+    openApiPath: {
       type: "string",
       describe: "Path to OpenAPI Spec",
+    },
+    apiConfigPath: {
+      type: "string",
+      describe: "Path to API Config file",
     },
     hostname: {
       type: "string",
@@ -20,7 +25,8 @@ yargs.command({
     }
   },
   handler(argv) {
-    openapispec.adaptSpec(argv.path, argv.hostname, config.get('apiConfig'))
+    const configData = JSON.parse(fs.readFileSync(argv.apiConfigPath));
+    openapispec.adaptSpec(argv.openApiPath, argv.hostname, configData.apiConfig)
   }
 });
 yargs.parse();
