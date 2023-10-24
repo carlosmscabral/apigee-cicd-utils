@@ -1,0 +1,28 @@
+{
+  "name": "apigee-cicd-utils",
+  "version": "1.0.0",
+  "description": "Utilities for Apigee CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosmscabral/apigee-cicd-utils.git"
+  },
+  "keywords": [
+    "apigee"
+  ],
+  "author": "Carlos Cabral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosmscabral/apigee-cicd-utils/issues"
+  },
+  "homepage": "https://github.com/carlosmscabral/apigee-cicd-utils#readme",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "config": "^3.3.9",
+    "yaml": "^2.3.3",
+    "yargs": "^17.7.2"
+  }
+}

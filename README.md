@@ -1,2 +1,1 @@
-# apigee-cicd-utils
-apigee-cicd-utils
+# demo-genai-v1
